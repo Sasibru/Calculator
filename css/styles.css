@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(129, 129, 129);
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calcContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8em;
+    width: 500px;
+    height: 600px;
+    border: solid black;
+}
+
+.btnSection {
+    display: grid;
+}
