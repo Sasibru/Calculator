@@ -18,8 +18,11 @@ body {
     width: 500px;
     height: 600px;
     border: solid black;
+    background-color: rgb(199, 199, 199);
 }
 
 .btnSection {
     display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
 }
