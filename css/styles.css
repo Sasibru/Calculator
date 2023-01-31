@@ -4,6 +4,11 @@ body {
     background: rgb(129, 129, 129);
 }
 
+button {
+    height: 60px;
+    font-weight: bold;
+}
+
 .main {
     display: flex;
     justify-content: center;
@@ -12,17 +17,42 @@ body {
 
 .calcContainer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 8em;
-    width: 500px;
+    width: 400px;
     height: 600px;
     border: solid black;
     background-color: rgb(199, 199, 199);
+    box-shadow: 5px 5px;
+}
+
+
+.display {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-bottom: 2em;
+    margin-top: 1em;
+    height: 100px;
+    width: 300px;
+    background-color: lightgreen;
+    border: solid black;
+}
+
+.displayNumbers {
+    font-size: 36px;
 }
 
 .btnSection {
     display: grid;
+    height: 400px;
+    width: 300px;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
+    grid-gap: 5px;
+}
+
+.spanTwo {
+    grid-column: span 2;
 }
