@@ -1,5 +1,8 @@
 "use strict"
 
+const numberButtons = document.querySelectorAll("[data-number]");
+const operatorButtons = document.querySelectorAll("[data-operator]");
+
 
 
 function add(num1, num2) {

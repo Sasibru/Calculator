@@ -5,6 +5,7 @@ body {
 }
 button {
     height: 60px;
+    font-size: 14px;
     font-weight: bold;
     background-color: rgba(128, 128, 128, 0.8);
     border-radius: 10px;
@@ -57,6 +58,7 @@ button {
 
 .numbers {
     background-color: rgb(214, 214, 214);
+    font-weight: bolder;
 }
 
 .spanTwo {
