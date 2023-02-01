@@ -1,12 +1,13 @@
 body {
     margin: 0;
     padding: 0;
-    background: rgb(129, 129, 129);
+    background: rgb(204, 204, 204);
 }
-
 button {
     height: 60px;
     font-weight: bold;
+    background-color: rgba(128, 128, 128, 0.8);
+    border-radius: 10px;
 }
 
 .main {
@@ -24,7 +25,8 @@ button {
     width: 400px;
     height: 600px;
     border: solid black;
-    background-color: rgb(199, 199, 199);
+    border-radius: 15px;
+    background-color: rgb(160, 160, 160);
     box-shadow: 5px 5px;
 }
 
@@ -51,6 +53,10 @@ button {
     width: 300px;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 5px;
+}
+
+.numbers {
+    background-color: rgb(214, 214, 214);
 }
 
 .spanTwo {
