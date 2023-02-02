@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: rgb(204, 204, 204);
+    background: rgba(204, 204, 204, 0.438);
 }
 button {
     height: 60px;
@@ -27,7 +27,7 @@ button {
     height: 600px;
     border: solid black;
     border-radius: 15px;
-    background-color: rgb(160, 160, 160);
+    background-color: rgba(160, 160, 160, 0.7);
     box-shadow: 5px 5px;
 }
 
@@ -44,8 +44,9 @@ button {
     border: solid black;
 }
 
-.displayNumbers {
+#displayNumbers {
     font-size: 36px;
+    margin-right: 4px;
 }
 
 .btnSection {
