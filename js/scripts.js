@@ -6,11 +6,16 @@ const operatorButtons = document.querySelectorAll(".operator");
 const clearBtn = document.getElementById("clearBtn");
 const deleteBtn = document.getElementById("deleteBtn");
 let displayValue = "";
+let currentOperator = "";
 
 function addValue(number) {
     displayNumber.innerHTML = displayValue += number.value;
 };
 
+function addOperator(operator) {
+    currentOperator = "";
+    currentOperator = operator.value;
+}
 
 
 function add(num1, num2) {
