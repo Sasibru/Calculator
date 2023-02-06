@@ -1,15 +1,14 @@
 "use strict"
 
 const displayNumber = document.getElementById("displayNumbers");
-const numberButtons = document.querySelectorAll("numbers");
-const operatorButtons = document.querySelectorAll("[data-operator]");
+const numberButtons = document.querySelectorAll(".numbers");
+const operatorButtons = document.querySelectorAll(".operator");
 let displayValue = "";
 
-numberButtons.forEach(button => {
-    button.addEventListener("click", event =>{
-      return displayValue.textContent = event.value;
-    })
-})
+function addValue(number) {
+    displayNumber.innerHTML = displayValue += number.value;
+};
+
 
 
 function add(num1, num2) {
