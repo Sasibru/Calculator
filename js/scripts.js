@@ -15,7 +15,7 @@ function addValue(number) {
 function addOperator(operator) {
     currentOperator = "";
     currentOperator = operator.value;
-}
+};
 
 
 function add(num1, num2) {
@@ -59,6 +59,9 @@ function deleteNum() {
     let result = string.slice(0, -1);
     displayNumber.innerHTML = result;
     displayValue = result;
+    if(displayValue === "") {
+        displayNumber.innerHTML = "0";
+    };
 };
 
 function clearCalc() {
