@@ -3,6 +3,8 @@
 const displayNumber = document.getElementById("displayNumbers");
 const numberButtons = document.querySelectorAll(".numbers");
 const operatorButtons = document.querySelectorAll(".operator");
+const clearBtn = document.getElementById("clearBtn");
+const deleteBtn = document.getElementById("deleteBtn");
 let displayValue = "";
 
 function addValue(number) {
@@ -45,4 +47,16 @@ function operate(operator, num1, num2) {
         default:
             return null;
     };
+};
+
+function deleteNum() {
+    let string = displayValue;
+    let result = string.slice(0, -1);
+    displayNumber.innerHTML = result;
+    displayValue = result;
+};
+
+function clearCalc() {
+    displayValue = "";
+    displayNumber.innerHTML = "0";
 };
