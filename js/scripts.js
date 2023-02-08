@@ -1,6 +1,8 @@
 "use strict"
 
+const div = document.createElement("div");
 const displayNumber = document.getElementById("displayNumbers");
+const displayScreen = document.getElementById("display");
 const numberButtons = document.querySelectorAll(".numbers");
 const operatorButtons = document.querySelectorAll(".operator");
 const clearBtn = document.getElementById("clearBtn");
@@ -10,6 +12,12 @@ let currentOperator = "";
 
 function addValue(number) {
     displayNumber.innerHTML = displayValue += number.value;
+    if(displayValue.length === 16) {
+        displayScreen.appendChild(div);
+        numberButtons.forEach((divs) => {
+            divs.removeAttribute("onclick");
+        })
+    }
 };
 
 function addOperator(operator) {
