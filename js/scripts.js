@@ -12,13 +12,23 @@ let currentOperator = "";
 
 function addValue(number) {
     displayNumber.innerHTML = displayValue += number.value;
+    isDisplayFull();
+};
+
+function isDisplayFull() {
     if(displayValue.length === 16) {
         displayScreen.appendChild(div);
         numberButtons.forEach((divs) => {
             divs.removeAttribute("onclick");
-        })
+        });
+    } else if (displayValue.length === 15) {
+        numberButtons.forEach((divs) => {
+                divs.onclick = function() {
+                    alert("test");
+                };
+        });
     }
-};
+}
 
 function addOperator(operator) {
     currentOperator = "";
