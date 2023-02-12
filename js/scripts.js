@@ -17,15 +17,12 @@ function addValue(number) {
 
 function isDisplayFull() {
     if(displayValue.length === 16) {
-        displayScreen.appendChild(div);
         numberButtons.forEach((divs) => {
-            divs.removeAttribute("onclick");
+            divs.disabled = true;
         });
-    } else if (displayValue.length === 15) {
+    } else {
         numberButtons.forEach((divs) => {
-                divs.onclick = function() {
-                    alert("test");
-                };
+            divs.disabled = false;
         });
     }
 }
@@ -80,9 +77,11 @@ function deleteNum() {
     if(displayValue === "") {
         displayNumber.innerHTML = "0";
     };
+    isDisplayFull();
 };
 
 function clearCalc() {
     displayValue = "";
     displayNumber.innerHTML = "0";
+    isDisplayFull();
 };
