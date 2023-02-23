@@ -9,6 +9,7 @@ const clearBtn = document.getElementById("clearBtn");
 const deleteBtn = document.getElementById("deleteBtn");
 let displayValue = "";
 let currentOperator = "";
+let storedValues = [];
 
 function addValue(number) {
     displayNumber.innerHTML = displayValue += number.value;
@@ -30,6 +31,7 @@ function isDisplayFull() {
 function addOperator(operator) {
     currentOperator = "";
     currentOperator = operator.value;
+    let pushedNumbers = storedValues.push(displayValue);
 };
 
 
@@ -39,7 +41,6 @@ function add(num1, num2) {
 
 function subtract(num1, num2) {
     return num1 - num2;
-
 };
 
 function multiply(num1, num2) {
@@ -84,4 +85,5 @@ function clearCalc() {
     displayValue = "";
     displayNumber.innerHTML = "0";
     isDisplayFull();
+    storedValues = [];
 };
