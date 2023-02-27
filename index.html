@@ -12,7 +12,8 @@
     <div class="main">
       <div class="calcContainer">
         <div id="display">
-          <div id="displayNumbers">0</div>
+          <div id="displayStoredValues"></div>
+          <div id="displayCurrentNum">0</div>
           
         </div>
         <div class="btnSection">
@@ -36,7 +37,7 @@
 
           <button class="btn" id="pointBtn">.</button>
           <button class="btn numbers" onclick="addValue(this)" value="0">0</button>
-          <button class="btn" id="equalBtn">=</button>
+          <button class="btn" id="equalBtn" onclick="operate(currentOperator, storedValues[0], storedValues[1])">=</button>
           <button class="btn operator" onclick="addOperator(this)" value="*">×</button>
         </div>
       </div>

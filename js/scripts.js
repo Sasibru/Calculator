@@ -1,18 +1,21 @@
 "use strict"
 
 const div = document.createElement("div");
-const displayNumber = document.getElementById("displayNumbers");
+const displayStoredValues = document.getElementById("displayStoredValues");
+const displayCurrentNum = document.getElementById("displayCurrentNum");
 const displayScreen = document.getElementById("display");
 const numberButtons = document.querySelectorAll(".numbers");
 const operatorButtons = document.querySelectorAll(".operator");
 const clearBtn = document.getElementById("clearBtn");
 const deleteBtn = document.getElementById("deleteBtn");
+const equalBtn = document.getElementById("equalBtn");
 let displayValue = "";
 let currentOperator = "";
 let storedValues = [];
+let storedEquation = [];
 
 function addValue(number) {
-    displayNumber.innerHTML = displayValue += number.value;
+    displayCurrentNum.innerHTML = displayValue += number.value;
     isDisplayFull();
 };
 
@@ -31,7 +34,13 @@ function isDisplayFull() {
 function addOperator(operator) {
     currentOperator = "";
     currentOperator = operator.value;
-    let pushedNumbers = storedValues.push(displayValue);
+    storedValues.push(displayValue);
+    storedEquation.push(displayValue);
+    displayCurrentNum.innerHTML = "0";
+    displayValue = "";
+    storedEquation.push(currentOperator);
+    displayStoredValues.innerHTML = storedEquation.join("");
+    isDisplayFull();
 };
 
 
@@ -51,6 +60,8 @@ function divide(num1, num2) {
     return num1 / num2;
 };
 
+let testOperate = "";
+
 function operate(operator, num1, num2) {
     switch(operator) {
         case "+":
@@ -68,22 +79,25 @@ function operate(operator, num1, num2) {
         default:
             return null;
     };
+    return testOperate;
 };
 
 function deleteNum() {
     let string = displayValue;
     let result = string.slice(0, -1);
-    displayNumber.innerHTML = result;
+    displayCurrentNum.innerHTML = result;
     displayValue = result;
     if(displayValue === "") {
-        displayNumber.innerHTML = "0";
+        displayCurrentNum.innerHTML = "0";
     };
     isDisplayFull();
 };
 
 function clearCalc() {
     displayValue = "";
-    displayNumber.innerHTML = "0";
+    displayCurrentNum.innerHTML = "0";
     isDisplayFull();
     storedValues = [];
+    storedEquation = [];
+    displayStoredValues.innerHTML = [];
 };
