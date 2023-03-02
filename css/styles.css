@@ -33,24 +33,23 @@ button {
 
 
 #display {
+    height: 100px;
+    width: 300px;
+    margin-bottom: 2em;
+    margin-top: 1em;
+    background-color: lightgreen;
+    border: solid black;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     flex-direction: column;
-    margin-bottom: 2em;
-    margin-top: 1em;
-    height: 100px;
-    width: 300px;
-    background-color: lightgreen;
-    border: solid black;
 }
 
 #displayStoredValues {
-    max-width: 300px;
     font-size: 14px;
     margin-right: 4px;
     padding-bottom: 1rem;
-    display: flex;
+    max-width: 300px;
     flex-wrap: wrap;
     justify-content: flex-end;
 }

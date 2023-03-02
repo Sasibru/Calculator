@@ -1,7 +1,7 @@
 "use strict"
 
 const div = document.createElement("div");
-const displayStoredValues = document.getElementById("displayStoredValues");
+const displayStoredEquation = document.getElementById("displayStoredEquation");
 const displayCurrentNum = document.getElementById("displayCurrentNum");
 const displayScreen = document.getElementById("display");
 const numberButtons = document.querySelectorAll(".numbers");
@@ -13,6 +13,7 @@ let displayValue = "";
 let currentOperator = "";
 let storedValues = [];
 let storedEquation = [];
+let equationValue = 0;
 
 function addValue(number) {
     displayCurrentNum.innerHTML = displayValue += number.value;
@@ -29,17 +30,26 @@ function isDisplayFull() {
             divs.disabled = false;
         });
     }
-}
+};
+
+function updateDisplay() {
+    storedValues.push(displayValue);
+    storedEquation.push(currentOperator);
+    storedEquation.push(displayValue);
+    displayStoredEquation.innerHTML = storedEquation.join("");
+};
 
 function addOperator(operator) {
+    updateDisplay()
+    if(currentOperator === "") {
+
+    } else {
+        equalEvaluate()
+    }
     currentOperator = "";
     currentOperator = operator.value;
-    storedValues.push(displayValue);
-    storedEquation.push(displayValue);
-    displayCurrentNum.innerHTML = "0";
+    // displayCurrentNum.innerHTML = "0";
     displayValue = "";
-    storedEquation.push(currentOperator);
-    displayStoredValues.innerHTML = storedEquation.join("");
     isDisplayFull();
 };
 
@@ -60,26 +70,34 @@ function divide(num1, num2) {
     return num1 / num2;
 };
 
-let testOperate = "";
+
+function equalEvaluate(){
+    let currentEquation;
+    if (equationValue === 0){
+        currentEquation = operate(currentOperator, storedValues[0], displayValue);
+    } else {
+        currentEquation = operate(currentOperator, equationValue, displayValue);
+    }
+    updateDisplay();
+    displayCurrentNum.innerHTML = currentEquation;
+    equationValue = currentEquation;
+}
 
 function operate(operator, num1, num2) {
+    num1 = Number(num1);
+    num2 = Number(num2);
     switch(operator) {
         case "+":
-            add(num1, num2);
-            break;
+            return add(num1, num2);
         case "-":
-            subtract(num1, num2);
-            break;
+            return subtract(num1, num2);
         case "*":
-            multiply(num1, num2);
-            break;
+            return multiply(num1, num2);
         case "/":
-            divide(num1, num2);
-            break;
+            return divide(num1, num2);
         default:
             return null;
     };
-    return testOperate;
 };
 
 function deleteNum() {
@@ -94,10 +112,12 @@ function deleteNum() {
 };
 
 function clearCalc() {
+    equationValue = 0;
     displayValue = "";
     displayCurrentNum.innerHTML = "0";
     isDisplayFull();
     storedValues = [];
     storedEquation = [];
-    displayStoredValues.innerHTML = [];
+    displayStoredEquation.innerHTML = [];
+    currentOperator = "";
 };
