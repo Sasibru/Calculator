@@ -1,6 +1,5 @@
 "use strict"
 
-const div = document.createElement("div");
 const displayStoredEquation = document.getElementById("displayStoredEquation");
 const displayCurrentNum = document.getElementById("displayCurrentNum");
 const displayScreen = document.getElementById("display");
@@ -14,6 +13,7 @@ let currentOperator = "";
 let storedValues = [];
 let storedEquation = [];
 let equationValue = 0;
+let currentEquation = 0;
 
 function addValue(number) {
     displayCurrentNum.innerHTML = displayValue += number.value;
@@ -33,22 +33,26 @@ function isDisplayFull() {
 };
 
 function updateDisplay() {
-    storedValues.push(displayValue);
     storedEquation.push(currentOperator);
-    storedEquation.push(displayValue);
     displayStoredEquation.innerHTML = storedEquation.join("");
+    displayCurrentNum.innerHTML = currentEquation;
 };
 
-function addOperator(operator) {
-    updateDisplay()
-    if(currentOperator === "") {
+function pushValues() {
+    storedValues.push(displayValue);
+    storedEquation.push(displayValue);
 
+}
+
+function addOperator(operator) {
+    if(currentOperator === "") {
+        pushValues();
     } else {
         equalEvaluate()
-    }
+    };
     currentOperator = "";
     currentOperator = operator.value;
-    // displayCurrentNum.innerHTML = "0";
+    updateDisplay()
     displayValue = "";
     isDisplayFull();
 };
@@ -72,14 +76,13 @@ function divide(num1, num2) {
 
 
 function equalEvaluate(){
-    let currentEquation;
+    pushValues();
     if (equationValue === 0){
         currentEquation = operate(currentOperator, storedValues[0], displayValue);
     } else {
         currentEquation = operate(currentOperator, equationValue, displayValue);
-    }
+    };
     updateDisplay();
-    displayCurrentNum.innerHTML = currentEquation;
     equationValue = currentEquation;
 }
 
@@ -93,7 +96,7 @@ function operate(operator, num1, num2) {
             return subtract(num1, num2);
         case "*":
             return multiply(num1, num2);
-        case "/":
+        case "/": 
             return divide(num1, num2);
         default:
             return null;
@@ -120,4 +123,5 @@ function clearCalc() {
     storedEquation = [];
     displayStoredEquation.innerHTML = [];
     currentOperator = "";
+    currentEquation = 0;
 };
