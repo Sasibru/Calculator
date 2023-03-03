@@ -8,6 +8,7 @@ const operatorButtons = document.querySelectorAll(".operator");
 const clearBtn = document.getElementById("clearBtn");
 const deleteBtn = document.getElementById("deleteBtn");
 const equalBtn = document.getElementById("equalBtn");
+const pointBtn = document.querySelectorAll(".pointBtn");
 let displayValue = "";
 let currentOperator = "";
 let storedValues = [];
@@ -27,6 +28,15 @@ function isDisplayFull() {
         });
     } else {
         numberButtons.forEach((divs) => {
+            divs.disabled = false;
+        });
+    };
+    if (displayValue.includes(".")) {
+        pointBtn.forEach((divs) => {
+            divs.disabled = true;
+        });
+    } else {
+        pointBtn.forEach((divs) => {
             divs.disabled = false;
         });
     }
