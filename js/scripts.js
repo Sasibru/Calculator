@@ -21,6 +21,7 @@ function addValue(number) {
     isDisplayFull();
 };
 
+
 function isDisplayFull() {
     if(displayValue.length === 16) {
         numberButtons.forEach((divs) => {
