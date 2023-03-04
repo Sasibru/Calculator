@@ -21,7 +21,6 @@ function addValue(number) {
     isDisplayFull();
 };
 
-
 function isDisplayFull() {
     if(displayValue.length === 16) {
         numberButtons.forEach((divs) => {
@@ -124,6 +123,13 @@ function deleteNum() {
     };
     isDisplayFull();
 };
+
+window.addEventListener('keydown', function(event) {
+    const key = event.key; // const {key} = event; ES6+
+    if (key === "Backspace" || key === "Delete") {
+        deleteNum();
+    }
+});
 
 function clearCalc() {
     equationValue = 0;
